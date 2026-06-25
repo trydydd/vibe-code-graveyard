@@ -1,0 +1,110 @@
+[
+  {
+    "id": "23485a8b5ca0",
+    "name": "Vibe-coded app founder throws away entire product, starts from scratch",
+    "tool": "Cursor",
+    "status": "Active",
+    "date": "2025-11-25",
+    "description": "Startup founder who vibe-coded their entire product admitted on Reddit that they threw it all away and started fresh from scratch. Despite still being 'all in on AI', the original codebase was so unrecognizable and unmaintainable that rewriting was the only option. Highlights the hidden cost of AI v",
+    "source": "https://www.reddit.com/r/webdev/comments/1p6r833/i_am_somehow_no_worried_about_the_vibe_coders/"
+  },
+  {
+    "id": "24a74d1e70a2",
+    "name": "We Audited 5 Vibe-Coded Startups. Every Single Codebase Had the Same 3 Problems.",
+    "tool": "AI",
+    "status": "Active",
+    "date": "2025-12-15",
+    "description": "Agency audited 5 startups built with AI coding tools. Every single one had: inconsistent code patterns making collaboration impossible, exposed API keys and secrets in the codebase, and fragile architecture that breaks unpredictably. Conclusion: vibe-coded MVPs need systematic cleanup before they ca",
+    "source": "https://altersquare.io/vibe-coded-startups-audit-common-codebase-problems/"
+  },
+  {
+    "id": "546be6d0d4ca",
+    "name": "Has anyone successfully vibe-coded a website and shipped it to production?",
+    "tool": "AI",
+    "status": "Active",
+    "date": "2026-01-20",
+    "description": "Startup founder asks if anyone has successfully taken a vibe-coded app from AI tools into production without major rework. Comments reveal widespread failures: apps that work in dev but crash under real load, security vulnerabilities from AI-generated auth flows, and complete rewrites becoming neces",
+    "source": "https://www.reddit.com/r/StartUpIndia/comments/1qhry6a/has_anyone_successfully_vibecoded_a_website_and/"
+  },
+  {
+    "id": "56ec720987bc",
+    "name": "Small AI startup, heavy 'vibecoding' \u2014 worried about long-term career impact",
+    "tool": "Cursor",
+    "status": "Active",
+    "date": "2026-01-06",
+    "description": "Engineer at a small AI startup describes how the company 'continues to ship slop' through heavy vibe-coding. Engineers work long hours debugging AI-generated code that nobody fully understands. The codebase is described as unmaintainable and growing worse daily.",
+    "source": "https://www.reddit.com/r/theprimeagen/comments/1q5hdh4/small_ai_startup_heavy_vibecoding_worried_about/"
+  },
+  {
+    "id": "602008e2abe8",
+    "name": "Why vibe-coded apps break in production",
+    "tool": "Cursor",
+    "status": "Active",
+    "date": "2026-01-10",
+    "description": "Deep dive into the technical reasons AI-generated apps fail under real-world conditions: missing input validation, race conditions from AI-generated async code, memory leaks in AI-written event handlers, and authentication flows that skip critical security checks. Common across Cursor, Claude Code, ",
+    "source": "https://chudovo.com/why-vibe-coded-apps-break-in-production-best-practices-for-cleanup/"
+  },
+  {
+    "id": "62192c3b2beb",
+    "name": "Non-technical founder: AI made us dangerous",
+    "tool": "AI",
+    "status": "Active",
+    "date": "2026-02-25",
+    "description": "Reddit discussion about non-technical founders using AI to skip parts that require judgment. AI is great at generating code but terrible at architecture decisions. Result: founders shipping production apps without understanding databases, authentication, or basic CS concepts \u2014 until things break at ",
+    "source": "https://www.reddit.com/r/SaaS/comments/1reprgs/is_ai_making_nontechnical_founders_dangerous_or/"
+  },
+  {
+    "id": "73f85b20205c",
+    "name": "Most vibe-coded apps have the same five problems",
+    "tool": "Cursor",
+    "status": "Active",
+    "date": "2025-12-20",
+    "description": "VoxturrLabs reports seeing the same patterns across dozens of AI-generated codebases: no separation of concerns, copy-pasted components with subtle variations, missing error boundaries, hardcoded credentials, and database schemas that work until they hit real data volume. Offers cleanup sprints for ",
+    "source": "https://voxturrlabs.com/vibe-code-cleanup/"
+  },
+  {
+    "id": "779b7c43f3cd",
+    "name": "AI writes bad code, but what if that's the good news?",
+    "tool": "AI",
+    "status": "Active",
+    "date": "2025-06-17",
+    "description": "Analysis of why AI-generated code looks bad but ships fast for MVPs. However, the same patterns that make it fast also make it unmaintainable. Founders using AI-generated code for production face a wall when they need to add features, scale, or bring on engineers who can't navigate the spaghetti.",
+    "source": "https://madewithlove.com/blog/ai-writes-bad-code-but-what-if-thats-the-good-news/"
+  },
+  {
+    "id": "84ff3686763b",
+    "name": "I'm fixing vibe-coded apps while everyone else is still busy laughing",
+    "tool": "Cursor",
+    "status": "Active",
+    "date": "2025-12-03",
+    "description": "Developer started a side business fixing AI-generated codebases. Reports that vibe-coded apps share the same 5 problems: inconsistent architecture, exposed secrets, fragile auth, no error handling, and databases that work until they don't. Clients are solo founders who built with Cursor and Lovable.",
+    "source": "https://www.reddit.com/r/EntrepreneurRideAlong/comments/1pd4crt/im_fixing_vibecoded_apps_while_everyone_else_is/"
+  },
+  {
+    "id": "cc8d4a1cc03c",
+    "name": "Sophisticated investors kill the deal over vibe-coded codebases",
+    "tool": "AI",
+    "status": "Active",
+    "date": "2026-02-01",
+    "description": "Technical due diligence is becoming a real risk for AI-generated codebases. Reports of investors conducting code reviews and either killing deals entirely or significantly reducing valuations when they find obvious security gaps, zero test coverage, and unmaintainable architecture. Cleanup before in",
+    "source": "https://smart-webtech.com/blog/vibe-coding-cleanup-the-guide-to-vibe-code-fixing-and-refactoring/"
+  },
+  {
+    "id": "d9ff76642f77",
+    "name": "Inherit-a-Vibe-Coded-Codebase: The 2026 Cleanup Playbook",
+    "tool": "Cursor",
+    "status": "Active",
+    "date": "2026-01-15",
+    "description": "Guide for engineers who inherited vibe-coded codebases. Covers Cursor, Claude Code, Lovable, Bolt, and v0 projects shipped without senior engineer review. Common patterns: massive diffs with no structure, no tests, no CI/CD, and code that works in development but fails under production load.",
+    "source": "https://vibecoding.app/blog/vibe-coded-codebase-rescue"
+  },
+  {
+    "id": "dfc6f3f92958",
+    "name": "9 months of 'vibe coding' a SaaS and here's what nobody tells you",
+    "tool": "Cursor",
+    "status": "Active",
+    "date": "2025-08-13",
+    "description": "Solo founder spent 9 months building a SaaS entirely with AI coding tools. Hit scaling issues at 1K users: app crashes randomly, can't add features without breaking existing ones, no tests, no CI, no idea how the codebase actually works. Admitted publicly they have no idea how to fix it because they",
+    "source": "https://www.reddit.com/r/indiehackers/comments/1mou1ln/9_months_of_vibe_coding_a_saas_and_heres_what/"
+  }
+]

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Removed — The Vibe Code Graveyard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="skull">☠</div>
+    <h1>Get Removed</h1>
+    <p class="tagline">Found yourself listed? That's fair. You'll be taken down within 24 hours.</p>
+    <a href="index.html" class="btn" style="margin-top: 1rem;">← Back to the graveyard</a>
+  </header>
+
+  <main style="max-width: 540px; margin: 0 auto; padding: 3rem 1rem;">
+    <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 2rem; margin-bottom: 2rem;">
+      <h2 style="font-family: var(--mono); color: #fff; font-size: 1.1rem; margin-bottom: 1.5rem;">Removal Request</h2>
+
+      <form id="remove-form" action="mailto:matteo@trydydd.com" method="POST" enctype="text/plain">
+        <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Your Name</label>
+          <input type="text" name="name" required style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">App / Company Name</label>
+          <input type="text" name="app" required style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Email</label>
+          <input type="email" name="email" required style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Link to Your Entry (optional)</label>
+          <input type="url" name="entry_url" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Repo Link (optional)</label>
+          <input type="url" name="repo_url" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
+            <input type="checkbox" name="audit" value="yes" style="margin-top: 0.2rem; accent-color: var(--accent);">
+            <span style="font-size: 0.85rem; color: var(--text); line-height: 1.4;">
+              <strong style="color: #fff;">Yes, I'd like a quick codebase audit.</strong> No charge, no strings. Just a second set of eyes from someone who's seen every pattern in this graveyard.
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn" style="width: 100%; text-align: center; border: none; cursor: pointer; font-family: var(--mono);">
+          Request Removal
+        </button>
+      </form>
+    </div>
+
+    <div style="background: var(--surface); border: 1px solid var(--accent-dim); border-radius: 6px; padding: 1.5rem;">
+      <h3 style="font-family: var(--mono); color: #fff; font-size: 0.95rem; margin-bottom: 0.75rem;">💀 Or just email me directly</h3>
+      <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 0;">
+        Sometimes forms are annoying. If you'd rather skip the ritual, just hit <a href="mailto:matteo@trydydd.com?subject=Remove%20from%20Vibe%20Code%20Graveyard">matteo@trydydd.com</a> with your app name and I'll take you down within 24 hours.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p class="fine-print">Removals processed within 24 hours. No justification required.</p>
+  </footer>
+</body>
+</html>
