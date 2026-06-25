@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-24T00:00:00Z",
+  "title": "Design System: Vibe Code Graveyard",
+  "extensions": {
+    "colorMeta": {
+      "void": { "role": "neutral", "displayName": "Void", "canonical": "#0a0a0a" },
+      "surface": { "role": "neutral", "displayName": "Surface", "canonical": "#141414" },
+      "surface-2": { "role": "neutral", "displayName": "Surface 2", "canonical": "#1e1e1e" },
+      "border": { "role": "neutral", "displayName": "Border", "canonical": "#2a2a2a" },
+      "text": { "role": "neutral", "displayName": "Text", "canonical": "#c8c8c8" },
+      "text-dim": { "role": "neutral", "displayName": "Text Dim", "canonical": "#666666" },
+      "fine-print": { "role": "neutral", "displayName": "Fine Print", "canonical": "#444444" },
+      "accent": { "role": "primary", "displayName": "Morgue Red", "canonical": "#dc2626" },
+      "accent-dim": { "role": "primary", "displayName": "Dried Blood", "canonical": "#7f1d1d" },
+      "accent-hover": { "role": "primary", "displayName": "Fresh Wound", "canonical": "#b91c1c" },
+      "white": { "role": "neutral", "displayName": "White", "canonical": "#ffffff" }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "card-fade-in", "value": "opacity 0.3s ease-out, transform 0.3s ease-out", "purpose": "Entry cards fade in on mount." },
+      { "name": "transition-standard", "value": "all 0.15s", "purpose": "Default easing for button and filter state changes." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "480px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "btn",
+      "description": "Clinical CTA. Morgue Red background, white monospace text.",
+      "html": "<button class=\"ds-btn-primary\">Request Removal</button>",
+      "css": ".ds-btn-primary { background: #dc2626; color: #fff; padding: 0.6rem 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; border: none; border-radius: 4px; cursor: pointer; transition: background 0.15s; } .ds-btn-primary:hover { background: #b91c1c; }"
+    },
+    {
+      "name": "Filter Button (Default)",
+      "kind": "button",
+      "refersTo": "filter-btn",
+      "description": "Terminal-style toggle pill. Transparent at rest, red when active.",
+      "html": "<button class=\"ds-filter-btn\">Cursor</button>",
+      "css": ".ds-filter-btn { background: transparent; color: #666; padding: 0.4rem 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; border: 1px solid #2a2a2a; border-radius: 4px; cursor: pointer; transition: all 0.15s; } .ds-filter-btn:hover { border-color: #dc2626; color: #dc2626; }"
+    },
+    {
+      "name": "Filter Button (Active)",
+      "kind": "button",
+      "refersTo": "filter-btn-active",
+      "description": "Active filter state. Morgue Red filled.",
+      "html": "<button class=\"ds-filter-btn-active\">All</button>",
+      "css": ".ds-filter-btn-active { background: #dc2626; color: #fff; padding: 0.4rem 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; border: 1px solid #dc2626; border-radius: 4px; cursor: pointer; }"
+    },
+    {
+      "name": "Entry Card",
+      "kind": "card",
+      "refersTo": "entry-card",
+      "description": "Obituary entry. Flat surface, bordered, monospace name.",
+      "html": "<div class=\"ds-entry-card\"><div class=\"ds-entry-header\"><span class=\"ds-entry-name\">Example Startup</span><span class=\"ds-entry-status\">ACTIVE</span></div><span class=\"ds-entry-tool\">CURSOR</span><p class=\"ds-entry-desc\">Solo founder hit scaling issues at 1K users. App crashes randomly.</p><div class=\"ds-entry-meta\"><span class=\"ds-entry-date\">2025-08-13</span><a class=\"ds-entry-link\" href=\"#\">Source ↗</a></div></div>",
+      "css": ".ds-entry-card { background: #141414; border: 1px solid #2a2a2a; border-radius: 6px; padding: 1.25rem; font-family: 'JetBrains Mono', monospace; color: #c8c8c8; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.15s; } .ds-entry-card:hover { border-color: #7f1d1d; } .ds-entry-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; } .ds-entry-name { font-size: 1rem; color: #fff; font-weight: 600; } .ds-entry-status { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.5rem; border-radius: 3px; background: #451a03; color: #fbbf24; } .ds-entry-tool { font-size: 0.75rem; color: #dc2626; text-transform: uppercase; letter-spacing: 0.03em; } .ds-entry-desc { font-family: -apple-system, sans-serif; font-size: 0.9rem; color: #c8c8c8; line-height: 1.5; } .ds-entry-meta { font-size: 0.7rem; color: #666; display: flex; justify-content: space-between; margin-top: auto; } .ds-entry-link { font-size: 0.75rem; color: #dc2626; text-decoration: none; } .ds-entry-link:hover { text-decoration: underline; }"
+    },
+    {
+      "name": "Form Input",
+      "kind": "input",
+      "refersTo": "form-input",
+      "description": "Removal page form field. Monospace, void background, dim border.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Your name\" />",
+      "css": ".ds-input { width: 100%; padding: 0.6rem 0.75rem; background: #0a0a0a; border: 1px solid #2a2a2a; border-radius: 4px; color: #c8c8c8; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; outline: none; transition: border-color 0.15s; } .ds-input:focus { border-color: #dc2626; } .ds-input::placeholder { color: #444; }"
+    },
+    {
+      "name": "Status Tag",
+      "kind": "chip",
+      "refersTo": "entry-status",
+      "description": "Case file label. Uppercase mono, 4 variants.",
+      "html": "<span class=\"ds-status ds-status-active\">ACTIVE</span> <span class=\"ds-status ds-status-abandoned\">ABANDONED</span> <span class=\"ds-status ds-status-fixing\">FIXING</span> <span class=\"ds-status ds-status-fixed\">FIXED</span>",
+      "css": ".ds-status { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.2rem 0.5rem; border-radius: 3px; display: inline-block; } .ds-status-active { background: #451a03; color: #fbbf24; } .ds-status-abandoned { background: #1e1b4b; color: #818cf8; } .ds-status-fixing { background: #14532d; color: #4ade80; } .ds-status-fixed { background: #064e3b; color: #2dd4bf; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Digital Coroner",
+    "overview": "A clinical memorial to AI-generated technical debt. The graveyard is a forensic record disguised as a website — obituary aesthetics for an absurd modern phenomenon. Monospace fonts, flat dark surfaces, one clinical red accent. The humor exists entirely in the gap between the serious format and the ridiculous content.",
+    "keyCharacteristics": [
+      "Monospace-first typography — reads like a terminal report, not a webpage",
+      "Flat, zero-shadow surfaces — depth through tonal layering only",
+      "One accent color, ruthlessly constrained — red on ≤15% of any screen",
+      "Generous negative space — each entry breathes; sparse by design",
+      "Obituary aesthetic: clinical, darkly funny, surgical"
+    ],
+    "rules": [
+      { "name": "The Morgue Red Rule", "body": "The accent appears on ≤15% of any given screen. Links, active states, and CTAs are the only permitted uses.", "section": "colors" },
+      { "name": "The Monospace Majority Rule", "body": "At least 70% of visible text is monospace. Sans-serif exists only for paragraph-length body copy.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "box-shadow does not exist in this design system. If a surface needs to feel elevated, make it lighter, not lifted.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use monospace for all headings, labels, metadata, buttons, and UI chrome.",
+      "Do keep the accent red at ≤15% of any screen.",
+      "Do use tonal layering (void → surface → border) for depth, never shadows.",
+      "Do write entry descriptions in neutral, clinical language.",
+      "Do keep cards spacious: 1.25rem padding, 0.75rem gaps.",
+      "Do use uppercase + monospace for all labels and tags.",
+      "Do maintain the obituary aesthetic: sparse, serious, data-like."
+    ],
+    "donts": [
+      "Don't use shadows, gradients, glassmorphism, or any decorative elevation.",
+      "Don't add a second accent color.",
+      "Don't make it look like a SaaS landing page.",
+      "Don't make it look like a tech blog.",
+      "Don't use aggressive or mocking language — we're the coroner, not the murderer.",
+      "Don't add gratuitous animation.",
+      "Don't use sans-serif for headings or metadata.",
+      "Don't make it look like it was built with AI."
+    ]
+  }
+}
