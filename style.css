@@ -8,8 +8,10 @@
   --text: #c8c8c8;
   --text-dim: #999;
   --fine: #888;
-  --accent: #dc2626;
+  --accent: #ee3323;
+  --accent-bg: #e13021;
   --accent-dim: #7f1d1d;
+  --white: #ffffff;
   --mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
   --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
@@ -59,9 +61,10 @@ header {
 h1 {
   font-family: var(--mono);
   font-size: clamp(1.75rem, 5vw, 3rem);
-  color: #fff;
+  color: var(--white);
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
+  text-wrap: balance;
 }
 
 .tagline {
@@ -94,14 +97,14 @@ h1 {
 
 .filter-btn {
   font-family: var(--mono);
-  font-size: 0.8rem;
-  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  padding: 0.65rem 1rem;
   border: 1px solid var(--border);
   border-radius: 4px;
   background: transparent;
   color: var(--text-dim);
   cursor: pointer;
-  transition: all 0.15s;
+  transition: border-color 0.15s, color 0.15s;
 }
 
 .filter-btn:hover {
@@ -110,9 +113,9 @@ h1 {
 }
 
 .filter-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+  background: var(--accent-bg);
+  border-color: var(--accent-bg);
+  color: var(--white);
 }
 
 /* GRAVEYARD GRID */
@@ -153,7 +156,7 @@ h1 {
 .entry-name {
   font-family: var(--mono);
   font-size: 1rem;
-  color: #fff;
+  color: var(--white);
   font-weight: 600;
 }
 
@@ -219,9 +222,10 @@ h1 {
 
 .about-preview h2 {
   font-family: var(--mono);
-  color: #fff;
+  color: var(--white);
   margin-bottom: 1rem;
   font-size: 1.25rem;
+  text-wrap: balance;
 }
 
 .about-preview p {
@@ -235,16 +239,16 @@ h1 {
   display: inline-block;
   font-family: var(--mono);
   font-size: 0.85rem;
-  padding: 0.6rem 1.5rem;
-  background: var(--accent);
-  color: #fff;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-bg);
+  color: var(--white);
   border-radius: 4px;
   text-decoration: none;
-  transition: background 0.15s;
+  transition: background-color 0.15s;
 }
 
 .btn:hover {
-  background: #b91c1c;
+  background: var(--accent-hover);
   text-decoration: none;
 }
 
@@ -252,6 +256,9 @@ h1 {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.back-link { margin-top: 1.5rem; }
+.back-link--compact { margin-top: 1rem; }
 
 /* FOOTER */
 footer {
@@ -290,9 +297,10 @@ footer p { margin-bottom: 0.5rem; }
 
 .remove-panel h2 {
   font-family: var(--mono);
-  color: #fff;
+  color: var(--white);
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
+  text-wrap: balance;
 }
 
 .form-group {
@@ -377,9 +385,10 @@ footer p { margin-bottom: 0.5rem; }
 
 .fallback-panel h3 {
   font-family: var(--mono);
-  color: #fff;
+  color: var(--white);
   font-size: 0.95rem;
   margin-bottom: 0.75rem;
+  text-wrap: balance;
 }
 
 .fallback-panel p {
@@ -397,8 +406,9 @@ footer p { margin-bottom: 0.5rem; }
 
 .about-main h2 {
   font-family: var(--mono);
-  color: #fff;
+  color: var(--white);
   margin-bottom: 1rem;
+  text-wrap: balance;
 }
 
 .about-main p {
@@ -407,7 +417,7 @@ footer p { margin-bottom: 0.5rem; }
 }
 
 .about-main strong {
-  color: #fff;
+  color: var(--white);
 }
 
 .status-list {
@@ -440,6 +450,44 @@ footer p { margin-bottom: 0.5rem; }
   }
 }
 
+/* SKIP LINK — accessible keyboard navigation */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* REDUCED MOTION — kill all transitions and animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* NO RESULTS — empty state */
+.no-results {
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 0;
+}
+
 /* RESPONSIVE — Tablet */
 @media (max-width: 768px) and (min-width: 481px) {
   .entries-grid {
@@ -465,5 +513,5 @@ footer p { margin-bottom: 0.5rem; }
   }
   .filters::-webkit-scrollbar { display: none; }
 
-  .filter-btn { flex-shrink: 0; font-size: 0.7rem; padding: 0.3rem 0.6rem; }
+  .filter-btn { flex-shrink: 0; font-size: 0.8rem; padding: 0.55rem 0.75rem; }
 }

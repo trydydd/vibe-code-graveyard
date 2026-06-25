@@ -71,9 +71,7 @@ function renderEntries(entries, filter = 'all') {
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <p style="color: var(--text-dim); font-family: var(--mono); font-size: 0.85rem; grid-column: 1/-1; text-align: center; padding: 3rem 0;">
-        No graves found for ${filter}. The graveyard is still digging.
-      </p>`;
+      <p class="no-results">No graves found for ${filter}. The graveyard is still digging.</p>`;
     return;
   }
 
@@ -89,7 +87,7 @@ function renderEntries(entries, filter = 'all') {
         : ''}
       <div class="entry-meta">
         <span class="entry-date">${entry.date || ''}</span>
-        ${entry.source ? `<a href="${entry.source}" target="_blank" rel="noopener" class="entry-link">Source ↗</a>` : ''}
+        ${entry.source ? `<a href="${entry.source}" target="_blank" rel="noopener noreferrer" class="entry-link">Source ↗</a>` : ''}
       </div>
     </article>
   `).join('');

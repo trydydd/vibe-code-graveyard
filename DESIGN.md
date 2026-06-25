@@ -9,7 +9,7 @@ colors:
   text: "#c8c8c8"
   text-dim: "#999999"
   fine-print: "#888888"
-  accent: "#dc2626"
+  accent: "#e13021"
   accent-dim: "#7f1d1d"
   accent-hover: "#b91c1c"
   white: "#ffffff"
