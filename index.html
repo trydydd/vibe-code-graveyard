@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <div class="skull">☠</div>
+    <div class="skull" aria-hidden="true">☠</div>
     <h1>The Vibe Code Graveyard</h1>
     <p class="tagline">A living memorial to startups built with AI that are already breaking.</p>
     <div class="counter">
@@ -17,16 +17,16 @@
     </div>
   </header>
 
-  <nav class="filters">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="cursor">Cursor</button>
-    <button class="filter-btn" data-filter="claude">Claude Code</button>
-    <button class="filter-btn" data-filter="bolt">Bolt.new</button>
-    <button class="filter-btn" data-filter="lovable">Lovable</button>
-    <button class="filter-btn" data-filter="v0">v0</button>
+  <nav class="filters" role="navigation" aria-label="Filter entries by tool">
+    <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+    <button class="filter-btn" data-filter="cursor" aria-pressed="false">Cursor</button>
+    <button class="filter-btn" data-filter="claude" aria-pressed="false">Claude Code</button>
+    <button class="filter-btn" data-filter="bolt" aria-pressed="false">Bolt.new</button>
+    <button class="filter-btn" data-filter="lovable" aria-pressed="false">Lovable</button>
+    <button class="filter-btn" data-filter="v0" aria-pressed="false">v0</button>
   </nav>
 
-  <section class="graveyard">
+  <section class="graveyard" aria-label="Entry listings">
     <div id="entries" class="entries-grid">
       <!-- Entries injected by JS -->
     </div>
@@ -41,7 +41,6 @@
 
   <footer>
     <p>Found yourself listed? <a href="remove.html">Get removed →</a></p>
-    <p class="fine-print">All entries are sourced from publicly available information. No doxxing. No private data. Just a mirror.</p>
     <p class="contact">Contact: <a href="mailto:matteo@trydydd.com">matteo@trydydd.com</a></p>
   </footer>
 

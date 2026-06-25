@@ -8,62 +8,62 @@
 </head>
 <body>
   <header>
-    <div class="skull">☠</div>
+    <div class="skull" aria-hidden="true">☠</div>
     <h1>Get Removed</h1>
     <p class="tagline">Found yourself listed? That's fair. You'll be taken down within 24 hours.</p>
     <a href="index.html" class="btn" style="margin-top: 1rem;">← Back to the graveyard</a>
   </header>
 
-  <main style="max-width: 540px; margin: 0 auto; padding: 3rem 1rem;">
-    <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 2rem; margin-bottom: 2rem;">
-      <h2 style="font-family: var(--mono); color: #fff; font-size: 1.1rem; margin-bottom: 1.5rem;">Removal Request</h2>
+  <main class="remove-main">
+    <div class="remove-panel">
+      <h2>Removal Request</h2>
 
-      <form id="remove-form">
-        <div style="margin-bottom: 1.25rem;">
-          <label for="name" style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Your Name</label>
-          <input id="name" type="text" name="name" required autocomplete="name" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+      <form id="remove-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="name">Your Name</label>
+          <input class="form-input" id="name" type="text" name="name" required autocomplete="name">
         </div>
 
-        <div style="margin-bottom: 1.25rem;">
-          <label for="app" style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">App / Company Name</label>
-          <input id="app" type="text" name="app" required autocomplete="organization" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+        <div class="form-group">
+          <label class="form-label" for="app">App / Company Name</label>
+          <input class="form-input" id="app" type="text" name="app" required autocomplete="organization">
         </div>
 
-        <div style="margin-bottom: 1.25rem;">
-          <label for="email" style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Email</label>
-          <input id="email" type="email" name="email" required autocomplete="email" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" id="email" type="email" name="email" required autocomplete="email">
         </div>
 
-        <div style="margin-bottom: 1.25rem;">
-          <label for="entry_url" style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Link to Your Entry (optional)</label>
-          <input id="entry_url" type="url" name="entry_url" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+        <div class="form-group">
+          <label class="form-label" for="entry_url">Link to Your Entry (optional)</label>
+          <input class="form-input" id="entry_url" type="url" name="entry_url">
         </div>
 
-        <div style="margin-bottom: 1.25rem;">
-          <label for="repo_url" style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Repo Link (optional)</label>
-          <input id="repo_url" type="url" name="repo_url" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+        <div class="form-group">
+          <label class="form-label" for="repo_url">Repo Link (optional)</label>
+          <input class="form-input" id="repo_url" type="url" name="repo_url">
         </div>
 
-        <div style="margin-bottom: 1.5rem;">
-          <label style="display: flex; align-items: flex-start; gap: 0.5rem; cursor: pointer;">
-            <input type="checkbox" name="audit" value="yes" style="margin-top: 0.2rem; accent-color: var(--accent);">
-            <span style="font-size: 0.85rem; color: var(--text); line-height: 1.4;">
-              <strong style="color: #fff;">Yes, I'd like a quick codebase audit.</strong> No charge, no strings. Just a second set of eyes from someone who's seen every pattern in this graveyard.
+        <div class="form-checkbox-group">
+          <label class="form-checkbox-label">
+            <input type="checkbox" name="audit" value="yes">
+            <span class="form-checkbox-text">
+              <strong>Yes, I'd like a quick codebase audit.</strong> No charge, no strings. Just a second set of eyes from someone who's seen every pattern in this graveyard.
             </span>
           </label>
         </div>
 
-        <button type="submit" class="btn" style="width: 100%; text-align: center; border: none; cursor: pointer; font-family: var(--mono);" id="submit-btn">
+        <button type="submit" class="btn form-submit" id="submit-btn">
           Request Removal
         </button>
       </form>
 
-      <div id="form-status" style="display: none; margin-top: 1rem; padding: 0.75rem 1rem; border-radius: 4px; font-family: var(--mono); font-size: 0.85rem;"></div>
+      <div class="form-status" id="form-status" role="alert" aria-live="polite"></div>
     </div>
 
-    <div style="background: var(--surface); border: 1px solid var(--accent-dim); border-radius: 6px; padding: 1.5rem;">
-      <h3 style="font-family: var(--mono); color: #fff; font-size: 0.95rem; margin-bottom: 0.75rem;">💀 Or just email me directly</h3>
-      <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 0;">
+    <div class="fallback-panel">
+      <h3>💀 Or just email me directly</h3>
+      <p>
         Sometimes forms are annoying. If you'd rather skip the ritual, just hit <a href="mailto:matteo@trydydd.com?subject=Remove%20from%20Vibe%20Code%20Graveyard">matteo@trydydd.com</a> with your app name and I'll take you down within 24 hours.
       </p>
     </div>
@@ -78,6 +78,22 @@
       e.preventDefault();
       const btn = document.getElementById('submit-btn');
       const status = document.getElementById('form-status');
+
+      // Basic validation
+      const name = document.getElementById('name').value.trim();
+      const app  = document.getElementById('app').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!name || !app || !email) {
+        status.className = 'form-status visible warning';
+        status.textContent = '→ Name, app name, and email are required.';
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        status.className = 'form-status visible warning';
+        status.textContent = '→ Please enter a valid email address.';
+        return;
+      }
+
       btn.disabled = true;
       btn.textContent = 'Sending...';
 
@@ -92,41 +108,20 @@
         source: window.location.href,
       };
 
-      try {
-        // Try Formspree — swap to your own endpoint when you register
-        // Sign up at https://formspree.io/f/ and replace the URL below
-        const res = await fetch('https://formspree.io/f/REPLACE_ME', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(body),
-        });
+      // Direct mailto — no Formspree dependency needed
+      // If you register Formspree later, swap this block back in
+      const subject = encodeURIComponent('Removal request: ' + body.app);
+      const auditLine = body.audit ? '%0A%0AI would like a codebase audit.' : '';
+      const entryLine = body.entry_url ? '%0A%0AEntry link: ' + encodeURIComponent(body.entry_url) : '';
+      const repoLine = body.repo_url ? '%0A%0ARepo link: ' + encodeURIComponent(body.repo_url) : '';
+      const mailBody = 'Name: ' + body.name + '%0AEmail: ' + body.email;
+      const mailto = `mailto:matteo@trydydd.com?subject=${subject}&body=${encodeURIComponent(mailBody)}${auditLine}${entryLine}${repoLine}`;
+      window.location.href = mailto;
 
-        if (res.ok) {
-          status.style.display = 'block';
-          status.style.background = '#14532d';
-          status.style.color = '#4ade80';
-          status.textContent = '✓ Request received. You\'ll hear back within 24 hours.';
-          e.target.reset();
-        } else {
-          throw new Error('Formspree error');
-        }
-      } catch {
-        // Fallback: construct mailto with all fields — works everywhere
-        const subject = encodeURIComponent('Removal request: ' + body.app);
-        const auditLine = body.audit ? '%0A%0AI would like a codebase audit.' : '';
-        const entryLine = body.entry_url ? '%0A%0AEntry link: ' + encodeURIComponent(body.entry_url) : '';
-        const repoLine = body.repo_url ? '%0A%0ARepo link: ' + encodeURIComponent(body.repo_url) : '';
-        const mailto = `mailto:matteo@trydydd.com?subject=${subject}&body=${encodeURIComponent('Name: ' + body.name + '%0AEmail: ' + body.email)}${auditLine}${entryLine}${repoLine}`;
-        window.location.href = mailto;
-
-        status.style.display = 'block';
-        status.style.background = '#451a03';
-        status.style.color = '#fbbf24';
-        status.textContent = '→ Your email client is opening. If it doesn\'t, just email matteo@trydydd.com directly.';
-      } finally {
-        btn.disabled = false;
-        btn.textContent = 'Request Removal';
-      }
+      status.className = 'form-status visible warning';
+      status.textContent = '→ Your email client is opening. If it doesn\'t, just email matteo@trydydd.com directly.';
+      btn.disabled = false;
+      btn.textContent = 'Request Removal';
     });
   </script>
 </body>
