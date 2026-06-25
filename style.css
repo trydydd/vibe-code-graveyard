@@ -8,8 +8,8 @@
   --text: #c8c8c8;
   --text-dim: #999;
   --fine: #888;
-  --accent: #ee3323;
-  --accent-bg: #e13021;
+  --accent: #e13021;
+  --accent-hover: #b91c1c;
   --accent-dim: #7f1d1d;
   --white: #ffffff;
   --mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
@@ -113,8 +113,8 @@ h1 {
 }
 
 .filter-btn.active {
-  background: var(--accent-bg);
-  border-color: var(--accent-bg);
+  background: var(--accent);
+  border-color: var(--accent);
   color: var(--white);
 }
 
@@ -240,7 +240,7 @@ h1 {
   font-family: var(--mono);
   font-size: 0.85rem;
   padding: 0.75rem 1.5rem;
-  background: var(--accent-bg);
+  background: var(--accent);
   color: var(--white);
   border-radius: 4px;
   text-decoration: none;

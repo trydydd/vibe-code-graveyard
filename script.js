@@ -3,6 +3,23 @@
 const ENTRIES = [];
 const DESCRIPTION_MAX = 220; // Character budget per card description
 
+function escapeHtml(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// Reject non-http(s) URLs to prevent javascript: injection
+function safeUrl(url) {
+  if (!url) return null;
+  try {
+    const u = new URL(url);
+    return (u.protocol === 'https:' || u.protocol === 'http:') ? url : null;
+  } catch { return null; }
+}
+
 // --- Fetch entries ---
 async function loadEntries() {
   try {
@@ -60,37 +77,46 @@ function renderEntries(entries, filter = 'all') {
 
   const filtered = filter === 'all'
     ? entries
-    : entries.filter(e => (e.tool || '').toLowerCase() === filter);
+    : entries.filter(e => (e.tool || '').toLowerCase().includes(filter));
 
   // Update counter with filtered context
-  if (filter === 'all') {
-    counter.textContent = `${entries.length} startups in the ground and counting`;
-  } else {
-    counter.textContent = `${filtered.length} of ${entries.length} shown`;
+  if (counter) {
+    if (filter === 'all') {
+      counter.textContent = `${entries.length} startups in the ground and counting`;
+    } else {
+      counter.textContent = `${filtered.length} of ${entries.length} shown`;
+    }
   }
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <p class="no-results">No graves found for ${filter}. The graveyard is still digging.</p>`;
+      <p class="no-results">No graves found for ${escapeHtml(filter)}. The graveyard is still digging.</p>`;
     return;
   }
 
-  container.innerHTML = filtered.map((entry, i) => `
-    <article class="entry-card" data-tool="${entry.tool || 'unknown'}" style="animation-delay: ${i * 0.04}s">
+  container.innerHTML = filtered.map((entry, i) => {
+    const name = escapeHtml(entry.name || 'Unknown');
+    const status = escapeHtml(entry.status || 'Active');
+    const statusClass = escapeHtml((entry.status || 'active').toLowerCase());
+    const tool = escapeHtml(entry.tool || 'AI');
+    const toolAttr = escapeHtml(entry.tool || 'unknown');
+    const description = escapeHtml(entry.description || '');
+    const date = escapeHtml(entry.date || '');
+    const sourceUrl = safeUrl(entry.source);
+    return `
+    <article class="entry-card" data-tool="${toolAttr}" style="animation-delay: ${i * 0.04}s">
       <div class="entry-header">
-        <span class="entry-name">${entry.name || 'Unknown'}</span>
-        <span class="entry-status status-${(entry.status || 'active').toLowerCase()}">${entry.status || 'Active'}</span>
+        <span class="entry-name">${name}</span>
+        <span class="entry-status status-${statusClass}">${status}</span>
       </div>
-      <span class="entry-tool">${entry.tool || 'AI'}</span>
-      ${entry.description
-        ? `<p class="entry-description">${entry.description}</p>`
-        : ''}
+      <span class="entry-tool">${tool}</span>
+      ${description ? `<p class="entry-description">${description}</p>` : ''}
       <div class="entry-meta">
-        <span class="entry-date">${entry.date || ''}</span>
-        ${entry.source ? `<a href="${entry.source}" target="_blank" rel="noopener noreferrer" class="entry-link">Source ↗</a>` : ''}
+        <span class="entry-date">${date}</span>
+        ${sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer" class="entry-link">Source ↗</a>` : ''}
       </div>
-    </article>
-  `).join('');
+    </article>`;
+  }).join('');
 }
 
 // --- Filter buttons ---
