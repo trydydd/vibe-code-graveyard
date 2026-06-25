@@ -7,8 +7,8 @@ colors:
   surface-2: "#1e1e1e"
   border: "#2a2a2a"
   text: "#c8c8c8"
-  text-dim: "#666666"
-  fine-print: "#444444"
+  text-dim: "#999999"
+  fine-print: "#888888"
   accent: "#dc2626"
   accent-dim: "#7f1d1d"
   accent-hover: "#b91c1c"
@@ -145,8 +145,8 @@ A forensic palette: void-black backgrounds, neutral gray surfaces, and one clini
 - **Surface 2** (`#1e1e1e`): Elevated surfaces (unused in current layout, reserved for modals).
 - **Border** (`#2a2a2a`): Section dividers, card borders. The only visible line in the system.
 - **Text** (`#c8c8c8`): Primary body copy. High contrast against void, never pure white.
-- **Text Dim** (`#666666`): Secondary copy, dates, metadata. Visible but deprioritized.
-- **Fine Print** (`#444444`): Footer disclaimers, the absolute quietest text.
+- **Text Dim** (`#999999`): Secondary copy, dates, metadata. Visible but deprioritized.
+- **Fine Print** (`#888888`): Footer disclaimers, the absolute quietest text.
 - **White** (`#ffffff`): Headings and card titles only. Reserved for maximum hierarchy.
 
 **The Morgue Red Rule.** The accent appears on ≤15% of any given screen. Links, active states, and CTAs are the only permitted uses. If a screen feels "red," the design is wrong.
