@@ -18,30 +18,30 @@
     <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 2rem; margin-bottom: 2rem;">
       <h2 style="font-family: var(--mono); color: #fff; font-size: 1.1rem; margin-bottom: 1.5rem;">Removal Request</h2>
 
-      <form id="remove-form" action="mailto:matteo@trydydd.com" method="POST" enctype="text/plain">
+      <form id="remove-form">
         <div style="margin-bottom: 1.25rem;">
-          <label style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Your Name</label>
-          <input type="text" name="name" required style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+          <label for="name" style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Your Name</label>
+          <input id="name" type="text" name="name" required autocomplete="name" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
         </div>
 
         <div style="margin-bottom: 1.25rem;">
-          <label style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">App / Company Name</label>
-          <input type="text" name="app" required style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+          <label for="app" style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">App / Company Name</label>
+          <input id="app" type="text" name="app" required autocomplete="organization" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
         </div>
 
         <div style="margin-bottom: 1.25rem;">
-          <label style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Email</label>
-          <input type="email" name="email" required style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+          <label for="email" style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Email</label>
+          <input id="email" type="email" name="email" required autocomplete="email" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
         </div>
 
         <div style="margin-bottom: 1.25rem;">
-          <label style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Link to Your Entry (optional)</label>
-          <input type="url" name="entry_url" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+          <label for="entry_url" style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Link to Your Entry (optional)</label>
+          <input id="entry_url" type="url" name="entry_url" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
         </div>
 
         <div style="margin-bottom: 1.25rem;">
-          <label style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Repo Link (optional)</label>
-          <input type="url" name="repo_url" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
+          <label for="repo_url" style="display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.4rem;">Repo Link (optional)</label>
+          <input id="repo_url" type="url" name="repo_url" style="width: 100%; padding: 0.6rem 0.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: var(--mono); font-size: 0.9rem;">
         </div>
 
         <div style="margin-bottom: 1.5rem;">
@@ -53,10 +53,12 @@
           </label>
         </div>
 
-        <button type="submit" class="btn" style="width: 100%; text-align: center; border: none; cursor: pointer; font-family: var(--mono);">
+        <button type="submit" class="btn" style="width: 100%; text-align: center; border: none; cursor: pointer; font-family: var(--mono);" id="submit-btn">
           Request Removal
         </button>
       </form>
+
+      <div id="form-status" style="display: none; margin-top: 1rem; padding: 0.75rem 1rem; border-radius: 4px; font-family: var(--mono); font-size: 0.85rem;"></div>
     </div>
 
     <div style="background: var(--surface); border: 1px solid var(--accent-dim); border-radius: 6px; padding: 1.5rem;">
@@ -70,5 +72,62 @@
   <footer>
     <p class="fine-print">Removals processed within 24 hours. No justification required.</p>
   </footer>
+
+  <script>
+    document.getElementById('remove-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const status = document.getElementById('form-status');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const formData = new FormData(e.target);
+      const body = {
+        name: formData.get('name'),
+        app: formData.get('app'),
+        email: formData.get('email'),
+        entry_url: formData.get('entry_url'),
+        repo_url: formData.get('repo_url'),
+        audit: formData.get('audit') === 'yes',
+        source: window.location.href,
+      };
+
+      try {
+        // Try Formspree — swap to your own endpoint when you register
+        // Sign up at https://formspree.io/f/ and replace the URL below
+        const res = await fetch('https://formspree.io/f/REPLACE_ME', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(body),
+        });
+
+        if (res.ok) {
+          status.style.display = 'block';
+          status.style.background = '#14532d';
+          status.style.color = '#4ade80';
+          status.textContent = '✓ Request received. You\'ll hear back within 24 hours.';
+          e.target.reset();
+        } else {
+          throw new Error('Formspree error');
+        }
+      } catch {
+        // Fallback: construct mailto with all fields — works everywhere
+        const subject = encodeURIComponent('Removal request: ' + body.app);
+        const auditLine = body.audit ? '%0A%0AI would like a codebase audit.' : '';
+        const entryLine = body.entry_url ? '%0A%0AEntry link: ' + encodeURIComponent(body.entry_url) : '';
+        const repoLine = body.repo_url ? '%0A%0ARepo link: ' + encodeURIComponent(body.repo_url) : '';
+        const mailto = `mailto:matteo@trydydd.com?subject=${subject}&body=${encodeURIComponent('Name: ' + body.name + '%0AEmail: ' + body.email)}${auditLine}${entryLine}${repoLine}`;
+        window.location.href = mailto;
+
+        status.style.display = 'block';
+        status.style.background = '#451a03';
+        status.style.color = '#fbbf24';
+        status.textContent = '→ Your email client is opening. If it doesn\'t, just email matteo@trydydd.com directly.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Request Removal';
+      }
+    });
+  </script>
 </body>
 </html>
