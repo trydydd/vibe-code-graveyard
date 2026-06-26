@@ -1,6 +1,6 @@
 ---
 id: 56ec720987bc
-name: "Small AI startup, heavy 'vibecoding' — worried about long-term career impact"
+name: "Small AI startup, heavy 'vibecoding', worried about long-term career impact"
 tool: Cursor
 status: Active
 date: 2026-01-06

@@ -1,4 +1,4 @@
-// === VIBE CODE GRAVEYARD — Entry Renderer ===
+// === VIBE CODE GRAVEYARD: Entry Renderer ===
 
 const ENTRIES = [];
 const DESCRIPTION_MAX = 220; // Character budget per card description

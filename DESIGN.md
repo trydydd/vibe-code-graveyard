@@ -114,34 +114,34 @@ components:
 
 **Creative North Star: "The Digital Coroner"**
 
-A clinical memorial to AI-generated technical debt. The graveyard is a forensic record disguised as a website — obituary aesthetics for an absurd modern phenomenon. The design is deliberately deadpan: monospace fonts, flat dark surfaces, a single red accent that reads like a warning label. The humor exists entirely in the gap between the serious format and the ridiculous content. It's not a blog, not a SaaS page, not a tool. It's a mirror.
+A clinical memorial to AI-generated technical debt. The graveyard is a forensic record disguised as a website: obituary aesthetics for an absurd modern phenomenon. The design is deliberately deadpan: monospace fonts, flat dark surfaces, a single red accent that reads like a warning label. The humor exists entirely in the gap between the serious format and the ridiculous content. It's not a blog, not a SaaS page, not a tool. It's a mirror.
 
 The system explicitly rejects: corporate SaaS patterns (gradient blobs, trust badges, "book a demo"), tech blog aesthetics (prose-heavy layouts, author headshots, newsletter signups), aggressive shaming energy (hate posts, condescension), and anything that looks like it was built with AI (the irony would be unbearable).
 
 **Key Characteristics:**
-- Monospace-first typography — the interface reads like a terminal report, not a webpage
-- Flat, zero-shadow surfaces — depth is communicated through tonal layering, not elevation
-- One accent color, ruthlessly constrained — red appears on ≤15% of any screen
-- Generous negative space — each entry breathes; the graveyard is sparse by design
-- Responsive but never fluid — breaks happen at defined columns, not gradual morphing
+- Monospace-first typography: the interface reads like a terminal report, not a webpage
+- Flat, zero-shadow surfaces: depth is communicated through tonal layering, not elevation
+- One accent color, ruthlessly constrained: red appears on ≤15% of any screen
+- Generous negative space: each entry breathes; the graveyard is sparse by design
+- Responsive but never fluid: breaks happen at defined columns, not gradual morphing
 
 ## 2. Colors
 
 A forensic palette: void-black backgrounds, neutral gray surfaces, and one clinical red accent.
 
 ### Primary
-- **Morgue Red** (`#dc2626`): The only accent. Used for links, active filters, CTAs, the entry counter, and tool labels. Its rarity is the point — every red element signals action or emphasis.
+- **Morgue Red** (`#dc2626`): The only accent. Used for links, active filters, CTAs, the entry counter, and tool labels. Its rarity is the point; every red element signals action or emphasis.
 - **Dried Blood** (`#7f1d1d`): Dim variant of the accent. Used for subtle borders around accent elements (counter pill, filter hover states).
 - **Fresh Wound** (`#b91c1c`): Hover state for primary buttons. Slightly darker, never brighter.
 
 ### Secondary (status tags)
-- **Amber Alert** (`#fbbf24` on `#451a03`): Active — still running, still breaking
-- **Ghost Purple** (`#818cf8` on `#1e1b4b`): Abandoned — shut down or forgotten
-- **Green Hope** (`#4ade80` on `#14532d`): Fixing — currently being cleaned up
-- **Teal Resurrection** (`#2dd4bf` on `#064e3b`): Fixed — survived the cleanup
+- **Amber Alert** (`#fbbf24` on `#451a03`): Active. Still running, still breaking.
+- **Ghost Purple** (`#818cf8` on `#1e1b4b`): Abandoned. Shut down or forgotten.
+- **Green Hope** (`#4ade80` on `#14532d`): Fixing. Currently being cleaned up.
+- **Teal Resurrection** (`#2dd4bf` on `#064e3b`): Fixed. Survived the cleanup.
 
 ### Neutral
-- **Void** (`#0a0a0a`): Page background. Not pure black — barely perceptible warmth to reduce eye strain on dark screens.
+- **Void** (`#0a0a0a`): Page background. Not pure black; barely perceptible warmth to reduce eye strain on dark screens.
 - **Surface** (`#141414`): Card and section backgrounds. One step above void.
 - **Surface 2** (`#1e1e1e`): Elevated surfaces (unused in current layout, reserved for modals).
 - **Border** (`#2a2a2a`): Section dividers, card borders. The only visible line in the system.
@@ -158,7 +158,7 @@ A forensic palette: void-black backgrounds, neutral gray surfaces, and one clini
 **Body Font:** System sans-serif stack (with Segoe UI fallback)
 **Label/Mono Font:** JetBrains Mono (system-wide monospace for all metadata, dates, tags)
 
-**Character:** Monospace carries the authority of a terminal report — clinical, unemotional, precise. Sans-serif handles body copy where readability matters more than atmosphere. The pairing creates a document that reads like evidence, not opinion.
+**Character:** Monospace carries the authority of a terminal report: clinical, unemotional, precise. Sans-serif handles body copy where readability matters more than atmosphere. The pairing creates a document that reads like evidence, not opinion.
 
 ### Hierarchy
 - **Display** (700, `clamp(1.75rem, 5vw, 3rem)`, 1.2 line-height): Page titles only. Monospace. White. Tight letter-spacing (-0.02em). Appears once per page.
@@ -174,7 +174,7 @@ A forensic palette: void-black backgrounds, neutral gray surfaces, and one clini
 
 **Flat by default. No shadows anywhere.**
 
-Depth is communicated exclusively through tonal layering: void → surface → surface 2. Cards sit on the surface layer (`#141414`) and are distinguished from the background by a 1px border (`#2a2a2a`), never by a shadow. There is no hover elevation on any component — only border-color shifts toward the accent.
+Depth is communicated exclusively through tonal layering: void → surface → surface 2. Cards sit on the surface layer (`#141414`) and are distinguished from the background by a 1px border (`#2a2a2a`), never by a shadow. There is no hover elevation on any component; only border-color shifts toward the accent.
 
 **The Flat-By-Default Rule.** `box-shadow` does not exist in this design system. If a surface needs to feel elevated, make it lighter, not lifted.
 
@@ -184,7 +184,7 @@ Depth is communicated exclusively through tonal layering: void → surface → s
 - **Character:** Clinical and urgent. Monospace text, flat red background, minimal radius.
 - **Shape:** Gently curved edges (4px radius)
 - **Primary:** Morgue Red background, white text, 0.6rem × 1.5rem padding, 0.85rem mono
-- **Hover:** Fresh Wound background (`#b91c1c`), no transform, no scale — only color shift
+- **Hover:** Fresh Wound background (`#b91c1c`), no transform, no scale; only color shift
 - **Transition:** 0.15s, background only
 
 ### Filter Buttons
@@ -199,7 +199,7 @@ Depth is communicated exclusively through tonal layering: void → surface → s
 - **Shape:** Slightly rounded (6px radius)
 - **Background:** Surface (`#141414`)
 - **Border:** 1px border (`#2a2a2a`)
-- **Hover:** Border shifts to Dried Blood (`#7f1d1d`) — the only interaction state
+- **Hover:** Border shifts to Dried Blood (`#7f1d1d`). The only interaction state.
 - **Internal Padding:** 1.25rem
 - **Fade-in:** 0.3s ease-out on mount (opacity 0→1, translateY 8px→0)
 
@@ -225,19 +225,19 @@ Depth is communicated exclusively through tonal layering: void → surface → s
 
 ### Do:
 - **Do** use monospace for all headings, labels, metadata, buttons, and UI chrome.
-- **Do** keep the accent red at ≤15% of any screen — its rarity is its power.
+- **Do** keep the accent red at ≤15% of any screen: its rarity is its power.
 - **Do** use tonal layering (void → surface → border) for depth, never shadows.
-- **Do** write entry descriptions in neutral, clinical language — document, don't editorialize.
+- **Do** write entry descriptions in neutral, clinical language: document, don't editorialize.
 - **Do** keep cards spacious: 1.25rem padding, 0.75rem gaps between elements.
-- **Do** use uppercase + monospace for all labels and tags — they read like case file stamps.
+- **Do** use uppercase + monospace for all labels and tags: they read like case file stamps.
 - **Do** maintain the obituary aesthetic: sparse, serious, data-like.
 
 ### Don't:
 - **Don't** use shadows, gradients, glassmorphism, or any decorative elevation technique.
-- **Don't** add a second accent color — the status tags are the only exception, and they're contextual.
+- **Don't** add a second accent color; the status tags are the only exception, and they're contextual.
 - **Don't** make it look like a SaaS landing page (no trust badges, no "book a demo", no hero sections with CTAs).
 - **Don't** make it look like a tech blog (no author bios, no newsletter signup, no prose-heavy opinion pieces).
-- **Don't** use aggressive or mocking language — we're the coroner, not the murderer.
+- **Don't** use aggressive or mocking language; we're the coroner, not the murderer.
 - **Don't** add gratuitous animation beyond the card fade-in and button transitions.
-- **Don't** use sans-serif for headings or metadata — monospace is the authority.
-- **Don't** make it look like it was built with AI — the irony would be unbearable.
+- **Don't** use sans-serif for headings or metadata: monospace is the authority.
+- **Don't** make it look like it was built with AI: the irony would be unbearable.

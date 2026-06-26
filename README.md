@@ -6,7 +6,7 @@ Startups built with AI coding tools that are already breaking. A living memorial
 
 ## What is this?
 
-A curated public index of startups and apps built with AI coding tools — Cursor, Claude Code, Bolt.new, Lovable, v0 — that are experiencing public failures: crashes, security breaches, scaling issues, abandoned projects, or founder confessions of regret.
+A curated public index of startups and apps built with AI coding tools (Cursor, Claude Code, Bolt.new, Lovable, v0) that are experiencing public failures: crashes, security breaches, scaling issues, abandoned projects, or founder confessions of regret.
 
 Entries are sourced from public confessions on Reddit, Hacker News, IndieHackers, and Twitter/X. Removal is frictionless. See [about](about.html).
 
@@ -75,14 +75,14 @@ python3 scrape_graveyard.py build       # Rebuild _entries.json from existing .m
 
 **How it works:**
 
-1. **Scrape** — Pulls RSS feeds from Reddit (via RSSHub), Hacker News (Algolia API), and IndieHackers
-2. **Filter** — Matches titles/descriptions against a keyword list (`vibe coded`, `cursor`, `claude code`, `technical debt`, etc.)
-3. **Detect** — Identifies which AI tool is mentioned (Cursor, Claude Code, Bolt, etc.)
-4. **Deduplicate** — Stable IDs based on `url:md5(title)` — same source, same entry
-5. **Write** — Outputs `graveyard/entry-<ID>.md` files with YAML frontmatter
-6. **Index** — Rebuilds `graveyard/_entries.json` from all `.md` files for the frontend
+1. **Scrape**: Pulls RSS feeds from Reddit (via RSSHub), Hacker News (Algolia API), and IndieHackers
+2. **Filter**: Matches titles/descriptions against a keyword list (`vibe coded`, `cursor`, `claude code`, `technical debt`, etc.)
+3. **Detect**: Identifies which AI tool is mentioned (Cursor, Claude Code, Bolt, etc.)
+4. **Deduplicate**: Stable IDs based on `url:md5(title)`, same source, same entry
+5. **Write**: Outputs `graveyard/entry-<ID>.md` files with YAML frontmatter
+6. **Index**: Rebuilds `graveyard/_entries.json` from all `.md` files for the frontend
 
-**No dependencies required** — runs on Python 3 stdlib only (`urllib`, `json`, `xml.etree`, `hashlib`).
+**No dependencies required.** Runs on Python 3 stdlib only (`urllib`, `json`, `xml.etree`, `hashlib`).
 
 ## Serving locally
 

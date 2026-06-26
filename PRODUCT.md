@@ -10,11 +10,11 @@ Solo founders, indie hackers, and pre-seed startup teams who built their apps wi
 
 ## Product Purpose
 
-Attract the attention of founders drowning in vibe-coded technical debt. The graveyard is a baited trap — shame-driven visibility that converts into inbound DMs from founders who want to get removed and/or get their codebase audited. It's not a blog, not a tool, not a service page. It's a public memorial that happens to be a lead engine.
+Attract the attention of founders drowning in vibe-coded technical debt. The graveyard is a baited trap: shame-driven visibility that converts into inbound DMs from founders who want to get removed and/or get their codebase audited. It's not a blog, not a tool, not a service page. It's a public memorial that happens to be a lead engine.
 
 ## Brand Personality
 
-Clinical, darkly funny, surgical. We are the coroner, not the murderer — serious documentation of an absurd phenomenon. The contrast between obituary aesthetics and ridiculous content is the entire brand. No mockery, no belittling, no tech-bro condescension. Just a mirror held up to a pattern nobody else is tracking.
+Clinical, darkly funny, surgical. We are the coroner, not the murderer. Serious documentation of an absurd phenomenon. The contrast between obituary aesthetics and ridiculous content is the entire brand. No mockery, no belittling, no tech-bro condescension. Just a mirror held up to a pattern nobody else is tracking.
 
 ## Anti-references
 
@@ -25,11 +25,11 @@ Clinical, darkly funny, surgical. We are the coroner, not the murderer — serio
 
 ## Design Principles
 
-1. **Obituary over opinion** — Document, don't editorialize. Serious format for absurd content.
-2. **Clinical precision** — Monospace, structured, data-like. This is a forensic record, not a rant.
-3. **Dark humor through contrast** — The humor comes from the gap between the deadpan design and the ridiculous entries, not from jokes in the copy.
-4. **Zero corporate DNA** — No trust signals, no CTAs (except the removal form), no "we're here to help" framing. The help is implied, never stated.
-5. **Shame as signal, not punishment** — Entries are sourced from public confessions. The graveyard is a mirror, not a weapon. Removal is always frictionless.
+1. **Obituary over opinion**: Document, don't editorialize. Serious format for absurd content.
+2. **Clinical precision**: Monospace, structured, data-like. This is a forensic record, not a rant.
+3. **Dark humor through contrast**: The humor comes from the gap between the deadpan design and the ridiculous entries, not from jokes in the copy.
+4. **Zero corporate DNA**: No trust signals, no CTAs (except the removal form), no "we're here to help" framing. The help is implied, never stated.
+5. **Shame as signal, not punishment**: Entries are sourced from public confessions. The graveyard is a mirror, not a weapon. Removal is always frictionless.
 
 ## Accessibility & Inclusion
 
