@@ -35,12 +35,12 @@ typography:
     fontWeight: 700
     lineHeight: 1.3
   body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontFamily: "Figtree, -apple-system, BlinkMacSystemFont, sans-serif"
     fontSize: "0.95rem"
     fontWeight: 400
     lineHeight: 1.6
   caption:
-    fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontFamily: "Figtree, -apple-system, BlinkMacSystemFont, sans-serif"
     fontSize: "0.85rem"
     fontWeight: 400
     lineHeight: 1.5
@@ -155,7 +155,7 @@ A forensic palette: void-black backgrounds, neutral gray surfaces, and one clini
 ## 3. Typography
 
 **Display Font:** JetBrains Mono (with Fira Code, SF Mono, monospace fallback)
-**Body Font:** System sans-serif stack (with Segoe UI fallback)
+**Body Font:** Figtree (with system sans-serif fallback)
 **Label/Mono Font:** JetBrains Mono (system-wide monospace for all metadata, dates, tags)
 
 **Character:** Monospace carries the authority of a terminal report: clinical, unemotional, precise. Sans-serif handles body copy where readability matters more than atmosphere. The pairing creates a document that reads like evidence, not opinion.
