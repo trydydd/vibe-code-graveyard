@@ -113,32 +113,19 @@ TOOL_PATTERNS = {
 }
 
 # ---------------------------------------------------------------------------
-# Search query sets: compound phrases for precision over recall
+# Search query sets
 # ---------------------------------------------------------------------------
-
-REDDIT_QUERIES = [
-    "vibe coding broke crash",
-    "vibe coded technical debt",
-    "cursor ai codebase mess",
-    "bolt.new app crash broke",
-    "lovable app broke crash",
-    "claude code maintenance disaster",
-    "ai generated code regret",
-    "vibe code nightmare disaster",
-    "ai startup security breach hacked",
-    "ai codebase can't maintain unmaintainable",
-    "vibe coding abandoned shut down",
-    "ai codebase rewrite starting over",
-]
 
 REDDIT_SUBREDDITS = [
     "EntrepreneurRideAlong",
     "SaaS",
     "startups",
     "SideProject",
+    "Entrepreneur",
+    "webdev",
 ]
 
-MIN_REDDIT_SCORE = 3
+ATOM_NS = "http://www.w3.org/2005/Atom"
 
 HN_QUERIES = [
     "vibe coding disaster broke",
@@ -154,6 +141,13 @@ HN_QUERIES = [
 ]
 
 MIN_HN_POINTS = 3
+
+# Core signals used as subreddit search queries (short forms for RSS search)
+REDDIT_SUB_QUERIES = [
+    "vibe coding", "vibe coded",
+    "cursor ai", "bolt.new", "lovable app", "claude code",
+    "ai generated code", "ai codebase",
+]
 
 
 # ---------------------------------------------------------------------------
@@ -220,68 +214,52 @@ def strip_html(text):
 # Scrapers
 # ---------------------------------------------------------------------------
 
-def _process_reddit_post(p, source, candidates, seen_ids):
-    post_id = p.get("id", "")
-    if not post_id or post_id in seen_ids:
-        return
-    if p.get("score", 0) < MIN_REDDIT_SCORE:
-        return
+def _parse_reddit_atom_entry(entry, source, candidates, seen_urls):
+    """Parse one entry from a Reddit Atom RSS feed."""
+    ns = {"a": ATOM_NS}
+    title = (entry.findtext("a:title", "", ns) or "").strip()
+    link_el = entry.find("a:link", ns)
+    url = link_el.get("href", "") if link_el is not None else ""
+    content = strip_html(entry.findtext("a:content", "", ns) or "")
+    updated = (entry.findtext("a:updated", "", ns) or "").strip()
 
-    title = (p.get("title") or "").strip()
-    selftext = (p.get("selftext") or "").strip()
-    if selftext in ("[deleted]", "[removed]"):
-        selftext = ""
-
-    if not is_relevant(f"{title} {selftext}"):
+    if not title or not url or url in seen_urls:
         return
 
-    seen_ids.add(post_id)
-    permalink = f"https://reddit.com{p.get('permalink', '')}"
-    date = datetime.fromtimestamp(
-        p.get("created_utc", 0), tz=timezone.utc
-    ).strftime("%Y-%m-%d")
+    if not is_relevant(f"{title} {content}"):
+        return
+
+    seen_urls.add(url)
+    date = updated[:10] if updated else datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     candidates.append({
         "title": title,
-        "description": selftext[:600] or title,
-        "url": permalink,
+        "description": content[:600] or title,
+        "url": url,
         "date": date,
         "source_site": source,
-        "score": p.get("score", 0),
+        "score": 0,
     })
 
 
 def scrape_reddit():
-    """Search Reddit via native JSON API with upvote filtering (no RSSHub)."""
+    """Search Reddit via public Atom RSS feeds (no JSON API needed)."""
     print("Scraping Reddit...")
     candidates = []
-    seen_ids = set()
+    seen_urls = set()
+    ns = {"a": ATOM_NS}
 
-    # Site-wide targeted searches
-    for query in REDDIT_QUERIES:
-        url = (
-            f"https://www.reddit.com/search.json"
-            f"?q={quote_plus(query)}&sort=new&limit=25&type=link"
-        )
-        data = fetch_json(url, ua=REDDIT_UA)
-        if data:
-            for child in data.get("data", {}).get("children", []):
-                _process_reddit_post(child.get("data", {}), "Reddit", candidates, seen_ids)
-        time.sleep(1.5)  # Reddit rate limit
-
-    # Subreddit-restricted searches for core signals
-    sub_queries = ["vibe coding", "vibe coded", "cursor ai", "bolt.new", "lovable app"]
     for sub in REDDIT_SUBREDDITS:
-        for query in sub_queries:
+        for query in REDDIT_SUB_QUERIES:
             url = (
-                f"https://www.reddit.com/r/{sub}/search.json"
-                f"?q={quote_plus(query)}&restrict_sr=1&sort=new&limit=10&type=link"
+                f"https://www.reddit.com/r/{sub}/search.rss"
+                f"?q={quote_plus(query)}&restrict_sr=1&sort=new&limit=25"
             )
-            data = fetch_json(url, ua=REDDIT_UA)
-            if data:
-                for child in data.get("data", {}).get("children", []):
-                    _process_reddit_post(child.get("data", {}), f"r/{sub}", candidates, seen_ids)
-            time.sleep(1.5)
+            root = fetch_xml(url, ua=REDDIT_UA)
+            if root is not None:
+                for entry in root.findall("a:entry", ns):
+                    _parse_reddit_atom_entry(entry, f"r/{sub}", candidates, seen_urls)
+            time.sleep(1.0)
 
     print(f"  Found {len(candidates)} relevant Reddit posts")
     return candidates
@@ -330,8 +308,7 @@ def scrape_hn():
         url = (
             f"https://hn.algolia.com/api/v1/search"
             f"?query={quote_plus(term)}&tags=story"
-            f"&numericFilters=points%3E%3D{MIN_HN_POINTS}"
-            f"&hitsPerPage=10"
+            f"&hitsPerPage=15"
         )
         data = fetch_json(url)
         if not data:
@@ -345,6 +322,8 @@ def scrape_hn():
             title = (hit.get("title") or "").strip()
             story_text = strip_html((hit.get("story_text") or "").strip())
 
+            if hit.get("points", 0) < MIN_HN_POINTS:
+                continue
             if not is_relevant(f"{title} {story_text}"):
                 continue
 
