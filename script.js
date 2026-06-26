@@ -115,7 +115,7 @@ function renderEntries(entries, filter = 'all') {
       ${description ? `<p class="entry-description">${description}</p>` : ''}
       <div class="entry-meta">
         <span class="entry-date">${date}</span>
-        ${sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer" class="entry-link">Source ↗</a>` : ''}
+        ${sourceUrl ? `<a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer" class="entry-link" aria-label="Source article for ${name}">Source ↗</a>` : ''}
       </div>
     </article>`;
   }).join('');

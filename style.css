@@ -8,7 +8,7 @@
   --text: #c8c8c8;
   --text-dim: #999;
   --fine: #888;
-  --accent: #e13021;
+  --accent: #d62b1a;
   --accent-text: #f04832;
   --accent-hover: #b91c1c;
   --accent-dim: #7f1d1d;
@@ -100,6 +100,7 @@ h1 {
   font-family: var(--mono);
   font-size: 0.85rem;
   padding: 0.75rem 1rem;
+  min-height: 44px;
   border: 1px solid var(--border);
   border-radius: 4px;
   background: transparent;
