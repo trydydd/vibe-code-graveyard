@@ -19,7 +19,17 @@
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
   <header>
-    <div class="skull" aria-hidden="true">☠</div>
+    <div class="skull" aria-hidden="true">
+      <svg width="1em" height="1em" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M7 28V24A13 19 0 0 1 33 24V28H7Z"/>
+        <rect x="7" y="28" width="26" height="8" rx="1"/>
+        <rect x="9" y="17" width="8" height="7" rx="1"/>
+        <rect x="23" y="17" width="8" height="7" rx="1"/>
+        <line x1="14" y1="28" x2="14" y2="36"/>
+        <line x1="20" y1="28" x2="20" y2="36"/>
+        <line x1="26" y1="28" x2="26" y2="36"/>
+      </svg>
+    </div>
     <h1>The Vibe Code Graveyard</h1>
     <p class="tagline">A living memorial to startups built with AI that are already breaking.</p>
     <div class="counter" id="grave-count">0 startups in the ground and counting</div>
@@ -54,6 +64,6 @@
     <p class="contact">Contact: <a href="mailto:matteo@trydydd.com">matteo@trydydd.com</a></p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

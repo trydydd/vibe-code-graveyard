@@ -10,17 +10,18 @@ colors:
   text-dim: "#999999"
   fine-print: "#888888"
   accent: "#e13021"
+  accent-text: "#f04832"
   accent-dim: "#7f1d1d"
   accent-hover: "#b91c1c"
   white: "#ffffff"
   status-active-bg: "#451a03"
-  status-active-text: "#fbbf24"
+  status-active-fg: "#fbbf24"
   status-abandoned-bg: "#1e1b4b"
-  status-abandoned-text: "#818cf8"
+  status-abandoned-fg: "#818cf8"
   status-fixing-bg: "#14532d"
-  status-fixing-text: "#4ade80"
+  status-fixing-fg: "#4ade80"
   status-fixed-bg: "#064e3b"
-  status-fixed-text: "#2dd4bf"
+  status-fixed-fg: "#2dd4bf"
 typography:
   display:
     fontFamily: "JetBrains Mono, Fira Code, SF Mono, monospace"
@@ -102,7 +103,7 @@ components:
     rounded: "{rounded.xs}"
   entry-status:
     backgroundColor: "{colors.status-active-bg}"
-    textColor: "{colors.status-active-text}"
+    textColor: "{colors.status-active-fg}"
     typography: "{typography.label}"
     rounded: "{rounded.xs}"
 ---

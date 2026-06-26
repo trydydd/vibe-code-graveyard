@@ -48,9 +48,11 @@ function truncateAtWord(text, maxLen) {
 function getInitialFilter() {
   const params = new URLSearchParams(window.location.search);
   const tool = params.get('tool');
-  if (tool && document.querySelector(`.filter-btn[data-filter="${tool}"]`)) {
-    return tool;
-  }
+  try {
+    if (tool && document.querySelector(`.filter-btn[data-filter="${tool}"]`)) {
+      return tool;
+    }
+  } catch { /* malformed CSS selector from crafted ?tool= param */ }
   return 'all';
 }
 
